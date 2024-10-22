@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: nodejs-template
-  title: NodeJS Template
+  name: node-user-management
+  title: Node User Management
   description: Create a website powered with NodeJS
   tags:
     - nodejs
