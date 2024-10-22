@@ -45,25 +45,20 @@ spec:
             allowedHosts:
               - github.com
   steps:
-    - id: template
-      name: Fetch the source code
+    - id: fetch-base
+      name: Fetch Base
       action: fetch:template
       input:
-        url: .
-        copyWithoutRender:
-          - .github/workflows/*
+        url: ./
         values:
-          component_id: ${{ parameters.component_id }}
-          description: ${{ parameters.description }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
-          owner: ${{ parameters.owner }}
+          name: ${{ parameters.name }}
 
     - id: publish
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ["github.com"]
-        description: This is ${{ parameters.component_id }}
+        allowedHosts: ['github.com']
+        description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
@@ -79,4 +74,4 @@ spec:
         url: ${{ steps['publish'].output.remoteUrl }}
       - title: Open in catalog
         icon: catalog
-        entityRef: ${{ steps.register.output.entityRef }}
+        entityRef: ${{ steps['register'].output.entityRef }}
