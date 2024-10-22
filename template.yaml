@@ -1,12 +1,12 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: react-ssr-template
-  title: React SSR Template
-  description: Create a website powered with Next.js
+  name: nodejs-template
+  title: NodeJS Template
+  description: Create a website powered with NodeJS
   tags:
-    - recommended
-    - react
+    - nodejs
+    - api
 spec:
   owner: aosman@ankasoft.co
   type: website
@@ -46,10 +46,10 @@ spec:
               - github.com
   steps:
     - id: template
-      name: Fetch Skeleton + Template
+      name: Fetch the source code
       action: fetch:template
       input:
-        url: ./skeleton
+        url: .
         copyWithoutRender:
           - .github/workflows/*
         values:
