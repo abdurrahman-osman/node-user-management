@@ -8,7 +8,7 @@ metadata:
     - nodejs
     - api
 spec:
-  owner: aosman@ankasoft.co
+  owner: user:guest
   type: website
   parameters:
     - title: Node User Management
