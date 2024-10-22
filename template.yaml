@@ -13,11 +13,17 @@ spec:
   parameters:
     - title: Node User Management
       required:
+        - name
         - component_id
         - owner
       properties:
-        component_id:
+        name:
           title: Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+        component_id:
+          title: name
           type: string
           description: Unique name of the component
           ui:field: EntityNamePicker
