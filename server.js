@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const expressOasGenerator = require('express-oas-generator');
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 app.get('/health', (req, res) => {
   res.sendStatus(200);
 });
-
+expressOasGenerator.init(app, {});
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });

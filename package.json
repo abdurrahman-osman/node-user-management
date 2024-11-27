@@ -10,6 +10,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.18.1",
+    "express-oas-generator": "^1.0.46",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.0"
   }

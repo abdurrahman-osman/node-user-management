@@ -4,5 +4,44 @@ metadata:
   name: ${{ values.name | dump }}
 spec:
   type: website
-  owner: user:guest
+  owner: devops
   lifecycle: experimental
+  providesApis: ["${{ values.name | dump }}"]
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ${{ values.name | dump }}
+  description: Retrieve artist details
+spec:
+  type: openapi
+  lifecycle: production
+  owner: devops
+  system: devops-system
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: node-express
+      version: 1.0.0
+      license:
+        name: Apache License, Version 2.0
+      description: |-
+        Specification JSONs: [v2](/api-spec/v2), [v3](/api-spec/v3).
+    
+        accelerator-description
+    paths:
+      /:
+        get:
+          summary: /
+          responses:
+           '200':
+              description: OK
+      tags: []
+      /health:
+        get:
+          summary: /health
+          responses:
+            '200':
+              description: OK
+          tags: []
+    tags: []
